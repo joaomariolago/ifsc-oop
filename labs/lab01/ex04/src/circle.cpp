@@ -1,6 +1,6 @@
 #include "circle.hpp"
 
-void Circle::setRadius(double radius)
+void Circle::radius(double radius)
 {
     if (radius > 0) {
         _radius = radius;
@@ -14,7 +14,7 @@ void Circle::increaseRadius(double percentage)
     }
 }
 
-void Circle::setCenter(double x, double y)
+void Circle::center(double x, double y)
 {
     _centerX = x;
     _centerY = y;

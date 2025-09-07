@@ -54,10 +54,10 @@ void test_circle()
     circle2.printArea();
     std::cout << std::endl;
 
-    /** Test 3: Testing setRadius method */
-    std::cout << "3. Testing the setRadius method:" << std::endl;
+    /** Test 3: Testing radius method */
+    std::cout << "3. Testing the set radius method:" << std::endl;
     std::cout << "Setting radius to 7.5..." << std::endl;
-    circle2.setRadius(7.5);
+    circle2.radius(7.5);
     circle2.printRadius();
     circle2.printArea();
     std::cout << std::endl;
@@ -75,10 +75,10 @@ void test_circle()
     circle2.printArea();
     std::cout << std::endl;
 
-    /** Test 5: Testing setCenter method */
-    std::cout << "5. Testing the setCenter method:" << std::endl;
+    /** Test 5: Testing set center method */
+    std::cout << "5. Testing the set center method:" << std::endl;
     std::cout << "Setting center to (10, 15)..." << std::endl;
-    circle2.setCenter(10.0, 15.0);
+    circle2.center(10.0, 15.0);
     circle2.printCenter();
     std::cout << std::endl;
 
@@ -102,11 +102,11 @@ void test_circle()
     std::cout << "7. Testing edge cases:" << std::endl;
 
     std::cout << "Setting radius to 0 (should not change):" << std::endl;
-    circle3.setRadius(0);
+    circle3.radius(0);
     circle3.printRadius();
 
     std::cout << "Setting radius to negative value (should not change):" << std::endl;
-    circle3.setRadius(-5);
+    circle3.radius(-5);
     circle3.printRadius();
 
     std::cout << "Increasing radius by 0% (should not change):" << std::endl;
@@ -144,10 +144,10 @@ void test_circle()
     Circle movingCircle(4.0, 0.0, 0.0);
     movingCircle.printCenter();
 
-    movingCircle.setCenter(100.0, 200.0);
+    movingCircle.center(100.0, 200.0);
     movingCircle.printCenter();
 
-    movingCircle.setCenter(-50.0, -75.0);
+    movingCircle.center(-50.0, -75.0);
     movingCircle.printCenter();
     std::cout << std::endl;
 }

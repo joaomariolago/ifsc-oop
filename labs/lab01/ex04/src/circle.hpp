@@ -15,9 +15,9 @@ public:
     {
     }
 
-    void setRadius(double radius);
+    void radius(double radius);
+    void center(double x, double y);
     void increaseRadius(double percentage);
-    void setCenter(double x, double y);
     void printRadius() const;
     void printCenter() const;
     void printArea() const;
@@ -31,9 +31,9 @@ private:
     double calculateDistance(const Circle& other) const;
     double calculateCircumference() const;
 
-    double _radius;
-    double _centerX;
-    double _centerY;
+    double _radius{0.0};
+    double _centerX{0.0};
+    double _centerY{0.0};
 };
 
 #endif
