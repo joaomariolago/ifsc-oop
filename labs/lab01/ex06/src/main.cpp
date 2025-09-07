@@ -75,7 +75,7 @@ void test_airconditioner()
     ac2.printStatus();
 
     std::cout << "Setting power to 8:" << std::endl;
-    ac2.setPower(8);
+    ac2.power(8);
     ac2.printStatus();
     std::cout << std::endl;
 
@@ -83,15 +83,15 @@ void test_airconditioner()
     std::cout << "4. Testing temperature control:" << std::endl;
 
     std::cout << "Setting external temperature to 30°C:" << std::endl;
-    ac2.setExternalTemperature(30.0);
+    ac2.externalTemperature(30.0);
     ac2.printStatus();
 
     std::cout << "Setting external temperature to 35°C:" << std::endl;
-    ac2.setExternalTemperature(35.0);
+    ac2.externalTemperature(35.0);
     ac2.printStatus();
 
     std::cout << "Setting external temperature to 20°C:" << std::endl;
-    ac2.setExternalTemperature(20.0);
+    ac2.externalTemperature(20.0);
     ac2.printStatus();
     std::cout << std::endl;
 
@@ -99,7 +99,7 @@ void test_airconditioner()
     std::cout << "5. Testing edge cases:" << std::endl;
 
     std::cout << "Trying to increase power beyond maximum:" << std::endl;
-    ac2.setPower(10);
+    ac2.power(10);
     for (int i = 0; i < 5; i++) {
         if (!ac2.increasePower()) {
             std::cout << "Power stopped at " << static_cast<int>(ac2.power())
@@ -109,7 +109,7 @@ void test_airconditioner()
     }
 
     std::cout << "Trying to decrease power below minimum:" << std::endl;
-    ac2.setPower(0);
+    ac2.power(0);
     for (int i = 0; i < 5; i++) {
         if (!ac2.decreasePower()) {
             std::cout << "Power stopped at " << static_cast<int>(ac2.power())
@@ -119,7 +119,7 @@ void test_airconditioner()
     }
 
     std::cout << "Setting power to 15 (should normalize to 10):" << std::endl;
-    ac2.setPower(15);
+    ac2.power(15);
     ac2.printStatus();
     std::cout << std::endl;
 
@@ -127,10 +127,10 @@ void test_airconditioner()
     std::cout << "6. Testing temperature calculations:" << std::endl;
 
     std::cout << "Testing different power levels with 30°C external temperature:" << std::endl;
-    ac2.setExternalTemperature(30.0);
+    ac2.externalTemperature(30.0);
 
     for (uint8_t power = 0; power <= 10; power++) {
-        ac2.setPower(power);
+        ac2.power(power);
         double roomTemp = ac2.getRoomTemperature();
         double decrease = power * 1.8;
         std::cout << "Power " << static_cast<int>(power) << ": "
@@ -152,7 +152,7 @@ void test_airconditioner()
     ac2.printStatus();
 
     std::cout << "Turning back on with power 7:" << std::endl;
-    ac2.setPower(7);
+    ac2.power(7);
     ac2.printStatus();
     std::cout << std::endl;
 
@@ -161,12 +161,12 @@ void test_airconditioner()
 
     std::cout << "Creating first conditioner (AC1) with medium power (5):" << std::endl;
     AirConditioner ac1_main(5);
-    ac1_main.setExternalTemperature(25.0);
+    ac1_main.externalTemperature(25.0);
     ac1_main.printStatus();
 
     std::cout << "Creating second conditioner (AC2) with maximum power (10):" << std::endl;
     AirConditioner ac2_main(10);
-    ac2_main.setExternalTemperature(31.0);
+    ac2_main.externalTemperature(31.0);
     ac2_main.printStatus();
 
     std::cout << "Summary of results:" << std::endl;
@@ -183,12 +183,12 @@ void test_airconditioner()
 
     std::cout << "Testing extreme temperatures:" << std::endl;
     AirConditioner ac_extreme(8);
-    ac_extreme.setExternalTemperature(40.0);
+    ac_extreme.externalTemperature(40.0);
     ac_extreme.printStatus();
 
     std::cout << "Testing very low temperatures:" << std::endl;
     AirConditioner ac_cold(3);
-    ac_cold.setExternalTemperature(5.0);
+    ac_cold.externalTemperature(5.0);
     ac_cold.printStatus();
     std::cout << std::endl;
 }

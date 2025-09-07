@@ -15,12 +15,12 @@ public:
         normalizePower();
     }
 
-    void setPower(uint8_t power);
+    void power(uint8_t power);
     bool increasePower();
     bool decreasePower();
     void turnOff();
 
-    void setExternalTemperature(double temperature);
+    void externalTemperature(double temperature);
     double getRoomTemperature() const;
 
     inline uint8_t power() const { return _power; }
@@ -32,8 +32,8 @@ public:
 private:
     void normalizePower();
 
-    uint8_t _power;
-    double _externalTemperature;
+    uint8_t _power{0U};
+    double _externalTemperature{25.0};
 };
 
 #endif

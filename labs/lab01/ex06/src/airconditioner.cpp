@@ -1,7 +1,7 @@
 #include "airconditioner.hpp"
 #include <cmath>
 
-void AirConditioner::setPower(uint8_t power)
+void AirConditioner::power(uint8_t power)
 {
     _power = power;
     normalizePower();
@@ -30,15 +30,17 @@ void AirConditioner::turnOff()
     _power = 0;
 }
 
-void AirConditioner::setExternalTemperature(double temperature)
+void AirConditioner::externalTemperature(double temperature)
 {
     _externalTemperature = temperature;
 }
 
 double AirConditioner::getRoomTemperature() const
 {
-    /** Each power unit decreases temperature by 1.8°C */
-    /** Maximum decrease is 18°C (10 power units * 1.8°C) */
+    /**
+     * Each power unit decreases temperature by 1.8°C
+     * Maximum decrease is 18°C (10 power units * 1.8°C)
+     */
     double temperatureDecrease = _power * 1.8;
     return _externalTemperature - temperatureDecrease;
 }
