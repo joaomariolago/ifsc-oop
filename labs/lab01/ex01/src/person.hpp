@@ -27,9 +27,9 @@ public:
     void print() const;
 
 private:
-    std::string _name;
-    uint8_t _age;
-    float _height;
+    std::string _name{};
+    uint8_t _age{0U};
+    float _height{0.0f};
 };
 
 #endif

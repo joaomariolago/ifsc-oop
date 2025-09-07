@@ -34,11 +34,11 @@ void test_person()
     /** Test 2: Constructor with parameters */
     std::cout << "2. Creating a person with constructor parameters:" << std::endl;
     Person pessoa2("João Silva", 25, 1.75);
-    pessoa1.print();
+    pessoa2.print();
     std::cout << std::endl;
 
     /** Test 3: Testing the getters methods */
-    std::cout << "3. Testing the getters methods:" << std::endl;
+    std::cout << "3. Testing the getters methods on person 2:" << std::endl;
     std::cout << "Name: " << pessoa2.name() << std::endl;
     std::cout << "Age: " << static_cast<int>(pessoa2.age()) << std::endl;
     std::cout << "Height: " << pessoa2.height() << std::endl;
