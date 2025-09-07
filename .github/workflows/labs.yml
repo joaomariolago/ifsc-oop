@@ -1,0 +1,56 @@
+name: Build and Run Labs
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clang cmake build-essential
+
+      - name: Build project
+        run: |
+          cd labs
+          mkdir -p build
+          cd build
+          cmake ..
+          make -j$(nproc)
+
+      - name: Run all lab executables
+        run: |
+          cd labs/build
+          echo "Running all lab executables..."
+
+          # Find and run all executables matching the pattern labXX/exXX/exXX
+          for lab_dir in ../lab*; do
+            if [ -d "$lab_dir" ]; then
+              lab_name=$(basename "$lab_dir")
+              echo "Processing $lab_name..."
+
+              for ex_dir in "$lab_dir"/ex*; do
+                if [ -d "$ex_dir" ]; then
+                  ex_name=$(basename "$ex_dir")
+                  exe_path="./$lab_name/$ex_name/$ex_name"
+
+                  if [ -f "$exe_path" ]; then
+                    echo "Running $exe_path..."
+                    echo "----------------------------------------"
+                    "$exe_path" || echo "Warning: $exe_path exited with non-zero status"
+                    echo "----------------------------------------"
+                    echo ""
+                    echo ""
+                  else
+                    echo "Warning: Executable $exe_path not found"
+                    echo ""
+                  fi
+                fi
+              done
+            fi
+          done
