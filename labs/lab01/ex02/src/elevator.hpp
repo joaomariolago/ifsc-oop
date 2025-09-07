@@ -29,10 +29,10 @@ public:
     void printStatus() const;
 
 private:
-    uint8_t _currentFloor;
-    uint8_t _totalFloors;
-    uint8_t _capacity;
-    uint8_t _currentOccupancy;
+    uint8_t _currentFloor{0U};
+    uint8_t _totalFloors{0U};
+    uint8_t _capacity{0U};
+    uint8_t _currentOccupancy{0U};
 };
 
 #endif
