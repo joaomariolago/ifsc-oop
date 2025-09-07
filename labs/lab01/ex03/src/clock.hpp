@@ -27,9 +27,9 @@ public:
 private:
     void normalizeTime();
 
-    uint8_t _hour;
-    uint8_t _minute;
-    uint8_t _second;
+    uint8_t _hour{0U};
+    uint8_t _minute{0U};
+    uint8_t _second{0U};
 };
 
 #endif
