@@ -22,7 +22,7 @@ bool Television::decreaseVolume()
     return false;
 }
 
-void Television::setVolume(uint8_t volume)
+void Television::volume(uint8_t volume)
 {
     if (!_poweredOn) return;
 
@@ -52,7 +52,7 @@ bool Television::previousChannel()
     return false;
 }
 
-void Television::setChannel(uint8_t channel)
+void Television::channel(uint8_t channel)
 {
     if (!_poweredOn) return;
 

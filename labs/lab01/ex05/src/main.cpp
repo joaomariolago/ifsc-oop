@@ -77,7 +77,7 @@ void test_television()
     tv2.printStatus();
 
     std::cout << "Setting volume to 80:" << std::endl;
-    tv2.setVolume(80);
+    tv2.volume(80);
     tv2.printStatus();
     std::cout << std::endl;
 
@@ -103,7 +103,7 @@ void test_television()
     }
 
     std::cout << "Setting channel to 50:" << std::endl;
-    tv2.setChannel(50);
+    tv2.channel(50);
     tv2.printStatus();
     std::cout << std::endl;
 
@@ -111,7 +111,7 @@ void test_television()
     std::cout << "5. Testing edge cases:" << std::endl;
 
     std::cout << "Trying to increase volume beyond maximum:" << std::endl;
-    tv2.setVolume(100);
+    tv2.volume(100);
     for (int i = 0; i < 5; i++) {
         if (!tv2.increaseVolume()) {
             std::cout << "Volume stopped at " << static_cast<int>(tv2.volume())
@@ -121,7 +121,7 @@ void test_television()
     }
 
     std::cout << "Trying to decrease volume below minimum:" << std::endl;
-    tv2.setVolume(0);
+    tv2.volume(0);
     for (int i = 0; i < 5; i++) {
         if (!tv2.decreaseVolume()) {
             std::cout << "Volume stopped at " << static_cast<int>(tv2.volume())
@@ -131,7 +131,7 @@ void test_television()
     }
 
     std::cout << "Trying to go to channels beyond range:" << std::endl;
-    tv2.setChannel(0);
+    tv2.channel(0);
     for (int i = 0; i < 5; i++) {
         if (!tv2.previousChannel()) {
             std::cout << "Channel stopped at " << static_cast<int>(tv2.channel())
@@ -140,7 +140,7 @@ void test_television()
         }
     }
 
-    tv2.setChannel(75);
+    tv2.channel(75);
     for (int i = 0; i < 5; i++) {
         if (!tv2.nextChannel()) {
             std::cout << "Channel stopped at " << static_cast<int>(tv2.channel())
@@ -182,11 +182,11 @@ void test_television()
     std::cout << "7. Testing value normalization:" << std::endl;
 
     std::cout << "Setting volume to 150 (should normalize to 100):" << std::endl;
-    tv2.setVolume(150);
+    tv2.volume(150);
     tv2.printStatus();
 
     std::cout << "Setting channel to 100 (should normalize to 75):" << std::endl;
-    tv2.setChannel(100);
+    tv2.channel(100);
     tv2.printStatus();
     std::cout << std::endl;
 
@@ -198,8 +198,8 @@ void test_television()
     tv3.printStatus();
 
     std::cout << "Changing settings on third TV:" << std::endl;
-    tv3.setVolume(75);
-    tv3.setChannel(25);
+    tv3.volume(75);
+    tv3.channel(25);
     tv3.printStatus();
 
     std::cout << "First television (unchanged):" << std::endl;

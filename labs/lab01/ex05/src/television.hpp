@@ -17,11 +17,11 @@ public:
 
     bool increaseVolume();
     bool decreaseVolume();
-    void setVolume(uint8_t volume);
+    void volume(uint8_t volume);
 
     bool nextChannel();
     bool previousChannel();
-    void setChannel(uint8_t channel);
+    void channel(uint8_t channel);
 
     inline uint8_t volume() const { return _volume; }
     inline uint8_t channel() const { return _channel; }
@@ -34,8 +34,8 @@ public:
 private:
     void normalizeValues();
 
-    uint8_t _volume;
-    uint8_t _channel;
+    uint8_t _volume{0U};
+    uint8_t _channel{0U};
     bool _poweredOn{true};
 };
 
